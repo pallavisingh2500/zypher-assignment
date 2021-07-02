@@ -35,7 +35,7 @@ mongoose.connect(process.env.DB_URL,
 //     res.render('clients/index');
 // })
 
-app.get('/clients', async (req, res) => {
+app.get('/', async (req, res) => {
     try {
         const clients = await Client.find({});
         res.render('clients/index', { clients });
@@ -55,7 +55,7 @@ app.get('/clients/new', (req, res) => {
 app.post('/clients', async (req, res) => {
     try {
         await Client.create(req.body.client);
-        res.redirect('/clients');
+        res.redirect('/');
     } catch (e) {
         console.log(e.message);
         res.render('error');
