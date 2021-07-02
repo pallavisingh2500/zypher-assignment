@@ -1,0 +1,60 @@
+<%- include("../partials/header") %>
+    <%- include("../partials/navbar") %>
+        <div class="container table-responsive">
+            <div>
+                <table class="table align-items-center mt-3">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col" class="sort" data-sort="name">CLIENT ID</th>
+                            <th scope="col" class="sort" data-sort="budget">CLOSING AGENT</th>
+                            <th scope="col" class="sort" data-sort="status">COMPANY</th>
+                            <th scope="col" class="sort" data-sort="status">ORDER</th>
+                            <th scope="col" class="sort" data-sort="status">INVOICE PAID</th>
+                            <th scope="col" class="sort" data-sort="status">INVOICE PENDING</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody class="list align-items-center">
+
+
+
+                        <%for(let person of clients){%>
+                            <tr>
+
+                                <td>
+                                    <span class="badge  mr-4">
+                                        <%= person.id%>
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <span class="badge  mr-4">
+                                        <%= person.name%>
+                                    </span>
+                                </td>
+                                <td>
+                                    <span class="badge  mr-4">
+                                        <%= person.company%>
+                                    </span>
+                                </td>
+                                <td>
+                                    <span class="badge  mr-4">
+                                        <%= person.orderId%>
+                                    </span>
+                                </td>
+                                <td>
+                                    <span class="badge  mr-4">
+                                        &#36;<%= person.invoicepaid%>
+                                    </span>
+                                </td>
+                                <td>
+                                    <span class="badge  mr-4">
+                                        &#36;<%= person.invoicePending%>
+                                    </span>
+                                </td>
+
+                            </tr>
+
+                            <%}%>
+
+                                <%- include("../partials/footer") %>
